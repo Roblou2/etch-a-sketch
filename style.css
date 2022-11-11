@@ -9,6 +9,7 @@ h1 {
     padding: 20px;
   grid-template-columns: repeat(16, 2vw);
   grid-template-rows: repeat(16, 2vw);
+  margin: 200px auto;
 }
 
 .square {
@@ -18,7 +19,16 @@ box-sizing: border-box;
 }
 
 .square-filled {
-  background-color: #f4f4f4;
-  border: 1px solid black;
+  background-color: grey;
 }
 
+.buttons {
+  color: red;
+  width: 150px;
+  margin-left: 300px;
+}
+
+#rubber {
+  background-color: lime;
+  font-size: 26px;
+}
