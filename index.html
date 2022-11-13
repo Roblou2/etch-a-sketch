@@ -9,23 +9,27 @@
     <script type="text/javascript" src="javascript.js" defer></script>
 </head>
 <body>
-    <div class = "wrap">
     <h1>Etch-a-sketch</h1>
-    <h2>Select size of drawing board</h2>
+
+    <div class = "wrap">
+
     <div class="buttons">
+        <h2 class = "menu">Select size</h2>
+        <button class = "big">Big</button>
+        <button class = "small">Small</button>
         <button class="clear">Clear</button>
-    <button class = "big">Big</button>
-    <button class = "small">Small</button>
-    </div>
-<div class="select">
-    <label for="favcolor">Select a colour</label>
+
+    <div class = "selector">
+    <label for="favcolor" id="label">Select a colour</label>
 <input type="color" name="favcolor" id="colorWell" value="#333333">
 </div>
+
 <button class = "rainbow">Rainbow mode off</button>
 <button class = "eraser">Eraser off</button>
+
+</div>
+
     <div id="container">
-
-
 
     </div>
     </div>

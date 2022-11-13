@@ -8,7 +8,7 @@ const big = document.querySelector('.big')
 
 big.addEventListener('click', () => {
     gridSize = 100
-    container.setAttribute('style', 'grid-template-rows: repeat(10, 4vw); grid-template-columns: repeat(10, 4vw);')
+    container.setAttribute('style', 'grid-template-rows: repeat(10, 3vw); grid-template-columns: repeat(10, 3vw);')
     reset()
 
 })
