@@ -38,15 +38,56 @@ container.onmouseup = function () {
 const defaultColour = '#333333'
 
 const colour = document.getElementById("colorWell")
+
 let colourSelected = defaultColour
 
 function setColour (newColour) {  //newColour grabbed from inline function below
-colourSelected = newColour
+
+    colourSelected = newColour
+ 
 }
 
-colour.oninput = (e) => setColour(e.target.value) //this gets the value of the colour selected and feeds it back into the setColour function
+colour.oninput = (e) => setColour(e.target.value) //this gets the value of the colour selected (on input) and feeds it back into the setColour function
 
+//set up eraser button to erase colour of one cell 
 
+let eraser = document.querySelector('.eraser')
+
+let eraserOn = false
+let eraserOff = true
+
+eraser.onclick = () => {
+    if (eraserOn === false && eraserOff === true) {
+eraserOn = true 
+eraserOff = false
+eraser.innerHTML = "Eraser on"
+    }
+else if (eraserOn === true && eraserOff === false) {
+eraserOn = false
+eraserOff = true
+eraser.innerHTML = "Eraser off"
+}
+    }
+
+//set up rainbow mode
+
+let rainbow = document.querySelector('.rainbow')
+
+let rainbowOn = false
+let rainbowOff = true
+
+rainbow.onclick = () => {
+    if (rainbowOn === false && rainbowOff === true) {
+rainbowOn = true 
+rainbowOff = false
+rainbow.innerHTML = "Rainbow mode on"
+    }
+else if (rainbowOn === true && rainbowOff === false) {
+rainbowOn = false
+rainbowOff = true
+rainbow.innerHTML = "Rainbow mode off"
+}
+    }
 
 
 //the foor loop to load the default gridSize (small) upon page load
@@ -57,24 +98,39 @@ for (let z = 0; z < gridSize; z++) {
 
     container.appendChild(square)     
 
-    square.addEventListener('mousedown', function (e) {
-        if(penOn === true && colourButtonOn === true) {                
+    square.addEventListener('mouseclick', function (e) {
+        if(penOn === true && eraserOff === true) {                
          
-       
-           
             e.target.style.backgroundColor = colourSelected
-           
+        }
+        else if (penOn === true && eraserOn === true) {
+            e.target.style.backgroundColor = '#f8f7fd'    //sets background colour to original and turns off colour selection
         }
 
-    })
+        if (penOn === true && rainbowOn === true && rainbowOff === false && eraserOn === false) {
+            const randomR = Math.floor(Math.random() * 256)
+            const randomG = Math.floor(Math.random() * 256)
+            const randomB = Math.floor(Math.random() * 256)
+            e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+    }
+})
+ 
 
     square.addEventListener('mouseover', function (e) {  
-        if(penOn === true) {   
-        
-   e.target.style.backgroundColor = colourSelected
-
+        if(penOn === true && eraserOff === true) {                
+         
+            e.target.style.backgroundColor = colourSelected
         }
-
+        else if (penOn === true && eraserOn === true) {
+            e.target.style.backgroundColor = '#f8f7fd'
+        }
+        if (penOn === true && rainbowOn === true && rainbowOff === false && eraserOn === false) {
+            const randomR = Math.floor(Math.random() * 256)
+            const randomG = Math.floor(Math.random() * 256)
+            const randomB = Math.floor(Math.random() * 256)
+            e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+    }
+ 
     })
 
   }
@@ -82,7 +138,7 @@ for (let z = 0; z < gridSize; z++) {
 
 
 
-//erase button and fresh grid for big and small buttons
+//clear button and fresh grid for big and small buttons
 const clear = document.querySelector('.clear')
 
 clear.addEventListener('click', reset)
@@ -99,28 +155,49 @@ function reset() {
 
     container.appendChild(square)     
 
-    square.addEventListener('mouseover', function (e) {  
-        if(penOn === true) {   
+    square.addEventListener('mouseclick', function (e) {  
+        if(penOn === true && eraserOff === true) {                
          
-            e.target.style.backgroundColor = colourSelected //grabbed from the setColour function above
-  
+            e.target.style.backgroundColor = colourSelected
         }
-    })
-   square.addEventListener('mousedown', function (e) {
-    if(penOn === true) {               
-     
-        e.target.style.backgroundColor = colourSelected
-    
-       
+        else if (penOn === true && eraserOn === true) {
+            e.target.style.backgroundColor = '#f8f7fd'    
+        }
+
+        if (penOn === true && rainbowOn === true && rainbowOff === false && eraserOn === false) {
+            const randomR = Math.floor(Math.random() * 256)
+            const randomG = Math.floor(Math.random() * 256)
+            const randomB = Math.floor(Math.random() * 256)
+            e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
     }
+
+    })
+   square.addEventListener('mouseover', function (e) {
+    if(penOn === true && eraserOff === true) {                
+         
+        e.target.style.backgroundColor = colourSelected
+    }
+    else if (penOn === true && eraserOn === true) {
+        e.target.style.backgroundColor = '#f8f7fd'
+    }
+
+    if (penOn === true && rainbowOn === true && rainbowOff === false && eraserOn === false) {
+        const randomR = Math.floor(Math.random() * 256)
+        const randomG = Math.floor(Math.random() * 256)
+        const randomB = Math.floor(Math.random() * 256)
+        e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+}
+
 })
 
   }
 } 
 
+window.onload = () => {
+    start()
+  }
 
 
- start()
 
 
  

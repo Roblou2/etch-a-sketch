@@ -1,5 +1,5 @@
 body {
-  background-color: #3f7cee;
+  background-color: #94b8fa;
 }
 
 h1 {
@@ -41,7 +41,7 @@ flex-shrink: 0;
 }
 
 
-.small, .big, .clear, .eraser {
+.small, .big, .clear, .eraser, .rainbow {
   background-color: lime;
   font-size: 26px;
   color: red;
