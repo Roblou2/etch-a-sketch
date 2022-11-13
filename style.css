@@ -1,3 +1,7 @@
+body {
+  background-color: #3f7cee;
+}
+
 h1 {
     text-align: center;
 }
@@ -24,18 +28,11 @@ width: 300px;
 
 
 .square {
-border: 1px solid black;
-background-color: skyblue;
+
+background-color: #f8f7fd;
 box-sizing: border-box;
 }
 
-#square-filled-red {
-  background-color: red;
-}
-
-#square-filled-green {
-  background-color: green;
-}
 
 .buttons {
 display: flex;
@@ -44,7 +41,7 @@ flex-shrink: 0;
 }
 
 
-.small, .big, .rubber {
+.small, .big, .clear, .eraser {
   background-color: lime;
   font-size: 26px;
   color: red;
@@ -52,10 +49,3 @@ flex-shrink: 0;
   margin-left: 300px;
 }
 
-.red, .green, .rainbow, .colour {
-  background-color: lime;
-  font-size: 26px;
-  color: red;
-  width: 150px;
-  margin-left: 300px;
-}
