@@ -2,7 +2,15 @@ body {
   background-color: #8685FF;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10vw;
+}
+
+p {
+  font-size: 1vw;
 }
 
 h1 {
@@ -14,20 +22,22 @@ h1 {
   flex-flow: column wrap;
   height: 40vw;
   width: 50vw;
-  justify-content: flex-start;
+  justify-content: center;
   column-gap: 10vw;
-  align-items: center;
+margin-right: 30vw;
 
 }
 
+
+
 #container {
     display: grid;
-height: 250px;
-width: 250px;
+height: 500px;
+width: 500px;
     padding: 20px;
-  grid-template-columns: repeat(30, 1vw);
-  grid-template-rows: repeat(30, 1vw);
- margin: 1vw 30vw 5vw 10vw;
+  grid-template-columns: repeat(30, 1fr);
+  grid-template-rows: repeat(30, 1fr);
+ margin: 5vw 35vw 5vw 0vw;
  
 }
 
@@ -41,34 +51,94 @@ box-sizing: border-box;
 
 .buttons {
 display: flex;
-flex-direction: column;
 flex-shrink: 0;
 margin-top: 1vw;
-margin-left: 8vw;
+margin-left: 4vw;
+gap: 1vw;
+
 }
 .menu {
-  margin-left: 8vw;
+  margin-left: 2vw;
   font-size: 1.5vw;
 }
 
 .selector {
-  width: 150px;
-  height: 2vw;
-  margin-left: 8vw;
-  margin-top: 2vw;
-  margin-bottom: 2vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  align-items: center;
+  margin-left: 1vw;
 }
 
 .small, .big, .clear, .eraser, .rainbow {
-  background-color: lime;
-  font-size: 22px;
-  color: red;
+  background-color: #ff7d57;
+  font-size: 1.7vw;
+  color: white;
   width: 150px;
-  margin-left: 8vw;
   margin-top: 1vw;
   margin-bottom: 1vw;
-}
-#label {
-  font-size: 22px;
+  font-family: arial, helvetica, sans-serif;
+  font-weight: 800;
+  border-radius: 20px;
+  padding: 10px;
+  border: 2px solid white;
 }
 
+.small:active, .big:active, .clear:active, .eraser:active, .rainbow:active {
+  box-shadow: 2px 2px 5px;
+}
+
+.rainbow {
+  width: 170px;
+}
+
+@media screen and (max-width: 500px) {
+  .wrap {
+    flex-flow: column nowrap;
+    gap: 2vw;
+    height: max-content;
+    width: max-content;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  #container {
+    margin: 0;
+    grid-template-columns: repeat(30, 1fr);
+    grid-template-rows: repeat(30, 1fr);
+    height: 250px;
+    width: 250px;
+   
+  }
+  .buttons {
+    flex-direction: row;
+  margin: 0;
+  gap: 2vw;
+  }
+  .selector {
+    flex-direction: row;
+    gap: 2vw;
+  }
+  .big, .small, .clear, .eraser, .rainbow {
+    font-size: 4vw;
+    color: white;
+    width: 75px;
+  margin: 0;
+    font-weight: 800;
+    border-radius: 2vw;
+    padding: 7px;;
+    border: 2px solid white;
+  }
+  .eraser, .rainbow {
+    width: 90px;
+  }
+  .menu {
+    font-size: 6vw;
+  }
+  h1 {
+    font-size: 8vw;
+  }
+  p {
+    font-size: 4vw;
+  }
+  }

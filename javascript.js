@@ -1,14 +1,14 @@
 const container = document.querySelector('#container') //add the grid to memory to grab in the for loop below
 
 
-//set big and small buttons
+
 let gridSize = 900;
 
 const big = document.querySelector('.big')
 
 big.addEventListener('click', () => {
     gridSize = 100
-    container.setAttribute('style', 'grid-template-rows: repeat(10, 3vw); grid-template-columns: repeat(10, 3vw);')
+    container.setAttribute('style', 'grid-template-rows: repeat(10, 1fr); grid-template-columns: repeat(10, 1fr);')
     reset()
 
 })
@@ -17,10 +17,16 @@ const small = document.querySelector('.small')
 
 small.addEventListener('click', () => {
 gridSize = 900
-container.setAttribute('style', 'grid-template-rows: repeat(30, 1vw); grid-template-columns: repeat(30, 1vw);')
+container.setAttribute('style', 'grid-template-rows: repeat(30, 1fr); grid-template-columns: repeat(30, 1fr);')
 reset()
 
 })
+// configure grid size for mobile devices 
+
+
+
+
+
 
 //configure the pen on/off switch for the grid container children
 let penOn = false;
