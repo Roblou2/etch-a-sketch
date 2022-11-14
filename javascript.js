@@ -39,15 +39,6 @@ container.onmouseup = function () {
   
 }
 
-//configure pen on/off switch for MOBILES
-
-container.ontouchstart = function () {
-    penOn = true;
-}
-
-container.ontouchend = function () {
-    penOn = false;
-}
 
 
 //set colour output
@@ -150,15 +141,15 @@ for (let z = 0; z < gridSize; z++) {
  
     })
     square.addEventListener('touchmove', function (e) {
-        if(penOn === true && eraserOff === true) {                
+        if(eraserOff === true) {                
          
             e.target.style.backgroundColor = colourSelected
         }
-        else if (penOn === true && eraserOn === true) {
+        else if (eraserOn === true) {
             e.target.style.backgroundColor = '#f8f7fd'    //sets background colour to original and turns off colour selection
         }
 
-        if (penOn === true && rainbowOn === true && rainbowOff === false && eraserOn === false) {
+        if (rainbowOn === true && rainbowOff === false && eraserOn === false) {
             const randomR = Math.floor(Math.random() * 256)
             const randomG = Math.floor(Math.random() * 256)
             const randomB = Math.floor(Math.random() * 256)
