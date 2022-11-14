@@ -28,7 +28,7 @@ reset()
 
 
 
-//configure the pen on/off switch for the grid container children
+//configure the pen on/off switch for the grid container children in DESKTOP
 let penOn = false;
 container.onmousedown = function () {      
     penOn = true;
@@ -38,6 +38,17 @@ container.onmouseup = function () {
     penOn = false;
   
 }
+
+//configure pen on/off switch for MOBILES
+
+container.ontouchstart = function () {
+    penOn = true;
+}
+
+container.ontouchend = function () {
+    penOn = false;
+}
+
 
 //set colour output
 
@@ -138,6 +149,23 @@ for (let z = 0; z < gridSize; z++) {
     }
  
     })
+    square.addEventListener('touchmove', function (e) {
+        if(penOn === true && eraserOff === true) {                
+         
+            e.target.style.backgroundColor = colourSelected
+        }
+        else if (penOn === true && eraserOn === true) {
+            e.target.style.backgroundColor = '#f8f7fd'    //sets background colour to original and turns off colour selection
+        }
+
+        if (penOn === true && rainbowOn === true && rainbowOff === false && eraserOn === false) {
+            const randomR = Math.floor(Math.random() * 256)
+            const randomG = Math.floor(Math.random() * 256)
+            const randomB = Math.floor(Math.random() * 256)
+            e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+    }
+})
+
 
   }
 }
