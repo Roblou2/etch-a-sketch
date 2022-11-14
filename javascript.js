@@ -140,7 +140,7 @@ for (let z = 0; z < gridSize; z++) {
     }
  
     })
-    square.addEventListener('touchmove', function (e) {
+    square.addEventListener('pointerover', function (e) {
         if(eraserOff === true) {                
          
             e.target.style.backgroundColor = colourSelected
