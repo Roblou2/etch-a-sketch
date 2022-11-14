@@ -140,7 +140,7 @@ for (let z = 0; z < gridSize; z++) {
     }
  
     })
-    square.addEventListener('pointerover', function (e) {
+    square.addEventListener('touchmove', function (e) {
         if(eraserOff === true) {                
          
             e.target.style.backgroundColor = colourSelected
@@ -213,6 +213,23 @@ function reset() {
         e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
 }
 
+})
+
+square.addEventListener('touchmove', function (e) {
+    if(eraserOff === true) {                
+     
+        e.target.style.backgroundColor = colourSelected
+    }
+    else if (eraserOn === true) {
+        e.target.style.backgroundColor = '#f8f7fd'    //sets background colour to original and turns off colour selection
+    }
+
+    if (rainbowOn === true && rainbowOff === false && eraserOn === false) {
+        const randomR = Math.floor(Math.random() * 256)
+        const randomG = Math.floor(Math.random() * 256)
+        const randomB = Math.floor(Math.random() * 256)
+        e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+}
 })
 
   }
