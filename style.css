@@ -38,7 +38,7 @@ width: 500px;
   grid-template-columns: repeat(30, 1fr);
   grid-template-rows: repeat(30, 1fr);
  margin: 5vw 35vw 5vw 0vw;
- 
+ touch-action: none;
 }
 
 
