@@ -216,7 +216,7 @@ window.onload = () => {
 
 
         function mobileDevs() {
-            container.addEventListener ('pointermove', (e) => {
+            container.addEventListener ('pointerdown', (e) => {
 if (e.clientX > 62 && e.clientX < 313 && e.clientY > 350 && e.clientY < 598) {
     let elem = document.elementFromPoint(e.clientX, e.clientY)
     if(eraserOff === true) {     
@@ -235,7 +235,7 @@ if (rainbowOn === true && rainbowOff === false && eraserOn === false) {
             }
      
         })
-        container.addEventListener ('touchmove', (e) => {
+        container.addEventListener ('pointermove', (e) => {
             if (e.clientX > 62 && e.clientX < 313 && e.clientY > 350 && e.clientY < 598) {
                 let elem = document.elementFromPoint(e.clientX, e.clientY)
                 if(eraserOff === true) {     
