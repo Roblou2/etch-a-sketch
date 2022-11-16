@@ -93,6 +93,13 @@ gap: 1vw;
 }
 
 @media screen and (max-width: 500px) {
+  html, body {
+    overflow-y: hidden;
+  }
+  body {
+    position: relative;
+  }
+  
   .wrap {
     flex-flow: column nowrap;
     gap: 2vw;
