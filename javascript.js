@@ -98,6 +98,9 @@ rainbow.innerHTML = "Rainbow mode off"
     }
 
 
+
+
+
 //the foor loop to load the default gridSize (small) upon page load
 function start () {
 for (let z = 0; z < gridSize; z++) {
@@ -122,7 +125,7 @@ for (let z = 0; z < gridSize; z++) {
             e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
     }
 })
- 
+
 
     square.addEventListener('mouseover', function (e) {  
         if(penOn === true && eraserOff === true) {                
@@ -205,10 +208,32 @@ function reset() {
 
 window.onload = () => {
     start()
+    mobileDevs() //run this to determine how mouse and pointer events function according to device width
   }
 
+    //confgiure touch interface for mobile devices 
 
 
 
- 
-
+        function mobileDevs() {
+            container.addEventListener ('pointermove', (e) => {
+if (e.clientX > 62 && e.clientX < 313 && e.clientY > 350 && e.clientY < 598) {
+    let elem = document.elementFromPoint(e.clientX, e.clientY)
+    if(eraserOff === true) {     
+           
+                elem.style.backgroundColor = colourSelected
+}
+else if (eraserOn === true) {
+    elem.style.backgroundColor = '#f8f7fd'    //sets background colour to original and turns off colour selection
+}
+if (rainbowOn === true && rainbowOff === false && eraserOn === false) {
+    const randomR = Math.floor(Math.random() * 256)
+    const randomG = Math.floor(Math.random() * 256)
+    const randomB = Math.floor(Math.random() * 256)
+    elem.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+}
+            }
+     
+        })
+    }
+    
