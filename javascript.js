@@ -216,6 +216,7 @@ window.onload = () => {
 
 
         function mobileDevs() {
+            
             container.addEventListener ('pointerdown', (e) => {
 if (e.clientX > 62 && e.clientX < 313 && e.clientY > 350 && e.clientY < 598) {
     let elem = document.elementFromPoint(e.clientX, e.clientY)
@@ -233,9 +234,8 @@ if (rainbowOn === true && rainbowOff === false && eraserOn === false) {
     elem.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
 }
             }
-     
         })
-        container.addEventListener ('pointermove', (e) => {
+     container.addEventListener ('pointermove', (e) => {
             if (e.clientX > 62 && e.clientX < 313 && e.clientY > 350 && e.clientY < 598) {
                 let elem = document.elementFromPoint(e.clientX, e.clientY)
                 if(eraserOff === true) {     
@@ -254,7 +254,9 @@ if (rainbowOn === true && rainbowOff === false && eraserOn === false) {
                         }
                  
                     })
-                }
+                
+            }
+                
     
 
 
