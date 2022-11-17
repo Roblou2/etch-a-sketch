@@ -205,39 +205,39 @@ function reset() {
 
   }
 } 
-
 window.onload = () => {
     start()
-    mobileDevs() //run this to determine how mouse and pointer events function according to device width
+checkSize()
+
   }
 
+
+let x = window.matchMedia("(max-width: 550px)")
+
+function checkSize () {
+    if (x.matches) {
+        mobileDevs()
+    }
+    else {
+        start ()
+    }
+}
+
+window.onresize = checkSize
     //confgiure touch interface for mobile devices 
 
 
 
         function mobileDevs() {
+            let wrap = document.querySelector('.wrap')
+            let mainBod = document.querySelector('body')
             
-            container.addEventListener ('pointerdown', (e) => {
-if (e.clientX > 62 && e.clientX < 307 && e.clientY > 350 && e.clientY < 596) {
-    let elem = document.elementFromPoint(e.clientX, e.clientY)
-    if(eraserOff === true) {     
-           
-                elem.style.backgroundColor = colourSelected
-}
-else if (eraserOn === true) {
-    elem.style.backgroundColor = '#f8f7fd'    //sets background colour to original and turns off colour selection
-}
-if (rainbowOn === true && rainbowOff === false && eraserOn === false) {
-    const randomR = Math.floor(Math.random() * 256)
-    const randomG = Math.floor(Math.random() * 256)
-    const randomB = Math.floor(Math.random() * 256)
-    elem.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
-}
-            }
-        })
-     container.addEventListener ('pointermove', (e) => {
-            if (e.clientX > 62 && e.clientX < 307 && e.clientY > 350 && e.clientY < 596) {
-                let elem = document.elementFromPoint(e.clientX, e.clientY)
+     container.addEventListener ('pointermove', function mobColour(e) {
+     wrap.setAttribute('style', 'pointer-events: none;') //this stops the wrap children from being manipulated by elemtFromPoint method
+
+      
+        let elem = document.elementFromPoint(e.clientX, e.clientY)
+ 
                 if(eraserOff === true) {     
                        
                             elem.style.backgroundColor = colourSelected
@@ -245,19 +245,20 @@ if (rainbowOn === true && rainbowOff === false && eraserOn === false) {
             else if (eraserOn === true) {
                 elem.style.backgroundColor = '#f8f7fd'    //sets background colour to original and turns off colour selection
             }
+       
+          
             if (rainbowOn === true && rainbowOff === false && eraserOn === false) {
                 const randomR = Math.floor(Math.random() * 256)
                 const randomG = Math.floor(Math.random() * 256)
                 const randomB = Math.floor(Math.random() * 256)
                 elem.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
             }
-                        }
-                 
+    
+        
                     })
-                
+                mainBod.addEventListener('pointerup', () => {
+                    wrap.setAttribute('style', 'pointer-events: auto')
+                   
+                })
             }
-                
-    
 
-
-    

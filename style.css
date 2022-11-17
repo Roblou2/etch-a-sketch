@@ -1,21 +1,24 @@
+
+
 body {
-  background-color: #8685FF;
+  background-color: #8685FF !important;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  column-gap: 10vw;
+  column-gap: 5vw;
+  height: 1000px;
+
 }
 
 p {
   font-size: 1vw;
 }
 
-h1 {
+.main-title {
     text-align: center;
-    font-size: 3vw;
+    font-size: 2vw;
+    margin-left: 30vw;
 }
 .wrap {
   display: flex;
@@ -24,21 +27,26 @@ h1 {
   width: 50vw;
   justify-content: center;
   column-gap: 10vw;
-margin-right: 30vw;
+  justify-content: center;
+  align-items: center;
 
 }
 
+.footer {
+  background-color: #8685FF !important;
 
+}
 
 #container {
     display: grid;
-height: 500px;
-width: 500px;
+height: 600px;
+width: 600px;
     padding: 20px;
   grid-template-columns: repeat(30, 1fr);
   grid-template-rows: repeat(30, 1fr);
- margin: 5vw 35vw 5vw 0vw;
- touch-action: none;
+touch-action: none;
+margin: 12vw 30vw 0 0;
+padding: 0;
 }
 
 
@@ -48,6 +56,9 @@ background-color: #f8f7fd;
 box-sizing: border-box;
 }
 
+p {
+  background-color: #8685FF !important;
+}
 
 .buttons {
 display: flex;
@@ -59,7 +70,7 @@ gap: 1vw;
 }
 .menu {
   margin-left: 2vw;
-  font-size: 1.5vw;
+
 }
 
 .selector {
@@ -67,7 +78,8 @@ gap: 1vw;
   flex-direction: column;
   gap: 1vw;
   align-items: center;
-  margin-left: 1vw;
+  margin-left: 2vw;
+
 }
 
 .small, .big, .clear, .eraser, .rainbow {
@@ -93,11 +105,15 @@ gap: 1vw;
 }
 
 @media screen and (max-width: 500px) {
-  html, body {
+ html, body {
     overflow-y: hidden;
+    margin: 0;
   }
   body {
     position: relative;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
   }
   
   .wrap {
@@ -108,19 +124,23 @@ gap: 1vw;
     justify-content: center;
     align-items: center;
     margin: 0;
+    margin-bottom: 10px;
   }
   #container {
-    margin: 0;
+    margin: 15vw  0 15vw 0;
     grid-template-columns: repeat(30, 1fr);
     grid-template-rows: repeat(30, 1fr);
     height: 250px;
-    width: 250px;
-   
+    width: 100vw;
+ padding: 0;
+
+
   }
   .buttons {
     flex-direction: row;
   margin: 0;
   gap: 2vw;
+
   }
   .selector {
     flex-direction: row;
@@ -147,5 +167,12 @@ gap: 1vw;
   }
   p {
     font-size: 4vw;
+    padding: 4.5vw 0;
+  }
+  .footer {
+    height: 20vw;
+  }
+  .main-title {
+    margin: 0;
   }
   }
